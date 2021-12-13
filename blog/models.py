@@ -16,3 +16,9 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Books(models.Model):
+    ISBN = models.CharField(max_length=200)
+    title= models.CharField(max_length=200)
+    author=models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,max_length=200)
+    published_date= models.DateTimeField(blank=True,null=True)
